@@ -1,0 +1,6 @@
+count,auc_roc_score,accuracy,subject,dataset,pipeline
+0,0.3171025575301891,0.36,,"make_gaussian_blobs(n_matrices=100, n_dim=4, class_sep=0, class_disp=0.5, random_state=42)",(9) cov-tgs-lda
+1,0.7881708746297562,0.72,,"make_gaussian_blobs(n_matrices=100, n_dim=4, class_sep=1, class_disp=0.5, random_state=42)",(9) cov-tgs-lda
+2,0.934769646654515,0.85,,"make_gaussian_blobs(n_matrices=100, n_dim=4, class_sep=2, class_disp=0.5, random_state=42)",(9) cov-tgs-lda
+3,0.9894546214019897,0.95,,"make_gaussian_blobs(n_matrices=100, n_dim=4, class_sep=3, class_disp=0.5, random_state=42)",(9) cov-tgs-lda
+4,1.0,0.985,,"make_gaussian_blobs(n_matrices=100, n_dim=4, class_sep=4, class_disp=0.5, random_state=42)",(9) cov-tgs-lda

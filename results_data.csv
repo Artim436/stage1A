@@ -1,0 +1,2 @@
+count,auc_roc_score,accuracy,subject,dataset,pipeline
+0,0.5607287449392713,0.5875,1,<moabb.datasets.Weibo2014.Weibo2014 object at 0x7f6f9a380430>,(9) cov-tgs-lda
