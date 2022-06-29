@@ -63,4 +63,5 @@ for _ in tqdm(range(nrzt)):
 # print the scores
 for meth in scores.keys():
 	print(meth, np.mean(scores[meth]))	
-	
+
+
