@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import numpy as  np
-from mpl_toolkits.mplot3d import axes3d
+from mpl_toolkits.mplot3d import Axes3D
 from pyriemann.datasets import sample_gaussian_spd, generate_random_spd_matrix
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider, Button, RadioButtons
@@ -11,6 +11,7 @@ from numpy.linalg import inv
 from numpy.linalg import matrix_power
 from numpy.linalg import multi_dot
 from numpy.linalg import eig
+from matplotlib import animation
 
 
 
@@ -55,11 +56,19 @@ phix = [geodesic(t/100, start, stop)[0][0] for t in range(100)]
 phiy = [geodesic(t/100, start, stop)[1][1] for t in range(100)]
 phiz = [geodesic(t/100, start, stop)[0][1] for t in range(100)]
 
-ax = plt.axes(projection='3d')
+fig = plt.figure(figsize=(10,10))
+ax =  Axes3D(fig)
 ax.scatter3D(start[0][0], start[1][1], start[0][1], c="red")
 ax.scatter3D(stop[0][0], stop[1][1], stop[1][0],  c="blue")
 ax.plot3D(phix, phiy, phiz,   c="red")
 ax.scatter3D(x, y, z, marker="x", c="green")
+def rotate(angle):
+     ax.view_init(azim=angle)
+
+angle = 3
+ani = animation.FuncAnimation(fig, rotate, frames=np.arange(0, 360, angle), interval=50)
+ani.save('blog5.gif', writer=animation.PillowWriter(fps=20))
+
 ax.set_xlim(0, 5)
 ax.set_ylim(0, 5)
 ax.set_xlabel('x')

@@ -81,6 +81,12 @@ mugauss, stdgauss = norm.fit(np.asarray(Hgauss))
 
 X = [(i*dmax/precision) for i in range(precision)]
 
+percs = np.linspace(1, 100, 100)
+qgaussprac = np.percentile(np.asarray(Hgauss), percs)
+qgauss = np.percentile(np.random.normal(1.16, 0.49, n_matrices), percs)
+
+
+
 plt.subplot(321)
 plt.hist(Hnorm, bins= X, normed=True)
 plt.ylim(0,1)
@@ -92,8 +98,6 @@ title = "Fit Values: munorm {:.2f} and stdnorm {:.2f}".format(munorm, stdnorm)
 plt.title(title)
 
 plt.subplot(322)
-percs = np.linspace(0, 1, n_matrices)
-qgauss = np.percentile(np.asarray(Hgauss), percs)
 qnorm = np.percentile(np.asarray(Hnorm), percs)
 plt.plot(qgauss, qnorm, ls="", marker="o")
 x = np.linspace(np.min((qgauss.min(),qnorm.min())), np.max((qgauss.max(),qnorm.max())))
@@ -127,7 +131,7 @@ title = "Fit Values: mugauss{:.2f} and stdgauss {:.2f}".format(mugauss, stdgauss
 plt.title(title)
 
 plt.subplot(326)
-plt.plot(qgauss, qgauss, ls="", marker="o")
+plt.plot(qgaussprac, qgauss, ls="", marker="o")
 x = np.linspace(np.min((qgauss.min(),qgauss.min())), np.max((qgauss.max(),qgauss.max())))
 plt.plot(x,x, color="k", ls="--")
 
