@@ -6,8 +6,11 @@ import random as rd
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn.utils import check_random_state
 from scipy.stats import multivariate_normal
+import time
 
 
+
+start1 = time.time()
 def rejection_sampling_A(sigma, r):
     MU_A = np.array([sigma**2/2, -sigma**2/2])
     COV_MATRIX = (sigma**2)*np.eye(2)
@@ -55,6 +58,8 @@ def rejection_sampling(sigma, n):
 
 R = rejection_sampling(1, 10000)
 print(np.shape(R))
+
+end1 = time.time()
 
 sigma = 1
 
