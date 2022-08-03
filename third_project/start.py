@@ -59,7 +59,7 @@ end1 = time.time()
 print(np.shape(R))
 
 start2 = time.time()
-def rejection_sampling_A(sigma, r):
+def rejection_sampling_A_2(sigma, r):
     MU_A = np.array([sigma**2/2, -sigma**2/2])
     COV_MATRIX = (sigma**2)*np.eye(2)
     M = np.pi*(sigma**2)*np.exp(sigma**2/4)
@@ -70,7 +70,7 @@ def rejection_sampling_A(sigma, r):
         return num / den
     return 0
     
-def rejection_sampling_B(sigma, r):
+def rejection_sampling_B_2(sigma, r):
     MU_B = np.array([-sigma**2/2, sigma**2/2])
     COV_MATRIX = (sigma**2)*np.eye(2)
     M = np.pi*(sigma**2)*np.exp(sigma**2/4)
@@ -82,7 +82,7 @@ def rejection_sampling_B(sigma, r):
     return 0
 
 
-def rejection_sampling(sigma, n):
+def rejection_sampling_2(sigma, n):
     MU_A = np.array([sigma**2/2, -sigma**2/2])
     MU_B = np.array([-sigma**2/2, sigma**2/2])
     COV_MATRIX = (sigma**2)*np.eye(2)
@@ -100,7 +100,7 @@ def rejection_sampling(sigma, n):
         if B[i] == 1:
             r = M1[k]
             k+=1
-            res = rejection_sampling_A(sigma, r)
+            res = rejection_sampling_A_2(sigma, r)
             if N[i] < res:
                 RES.append(r)
                 cpt += 1
@@ -108,17 +108,17 @@ def rejection_sampling(sigma, n):
         else:
             r = M2[l]
             l+=1
-            res = rejection_sampling_B(sigma, r)
+            res = rejection_sampling_B_2(sigma, r)
             if N[i] < res:
                 RES.append(r)
                 cpt+=1
             i+=1
     return np.array(RES)
 
-R = rejection_sampling(1, 10000)
+R_2 = rejection_sampling_2(1, 10000)
 end2 = time.time()
 
-print(np.shape(R))
+print(np.shape(R_2))
 print(end1 - start1)
 print(end2 - start2)
 
