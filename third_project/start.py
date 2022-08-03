@@ -56,6 +56,7 @@ def rejection_sampling(sigma, n):
 R = rejection_sampling(1, 10000)
 print(np.shape(R))
 
+sigma = 1
 
 T = 5
 rx = np.linspace(-T, T, 200)
