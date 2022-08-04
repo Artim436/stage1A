@@ -1,1 +1,5 @@
 amelioration en generant tous les samples gaussien d'u seul coup
+
+pareille pour binomiale
+
+idee : caluler frequenc pour ajuster le 2*n

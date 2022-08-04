@@ -8,6 +8,14 @@ from sklearn.utils import check_random_state
 from scipy.stats import multivariate_normal
 import time
 
+
+
+
+
+
+
+########################### 1er test
+
 start1 = time.time()
 def rejection_sampling_A(sigma, r):
     MU_A = np.array([sigma**2/2, -sigma**2/2])
@@ -54,9 +62,17 @@ def rejection_sampling(sigma, n):
                 cpt+=1
     return np.array(RES)
 
-R = rejection_sampling(1, 10000)
+R = rejection_sampling(1, 1000)
 end1 = time.time()
 print(np.shape(R))
+
+
+
+
+
+
+
+##################################### 2eme test
 
 start2 = time.time()
 def rejection_sampling_A_2(sigma, r):
@@ -115,12 +131,21 @@ def rejection_sampling_2(sigma, n):
             i+=1
     return np.array(RES)
 
-R_2 = rejection_sampling_2(1, 10000)
+R_2 = rejection_sampling_2(1, 1000)
 end2 = time.time()
 
 print(np.shape(R_2))
 print(end1 - start1)
 print(end2 - start2)
+
+
+###############################bilan
+############   pour 10 000 matrices, premier test 4,52 sec
+             ##                      deuxieme test 1,95 sec
+# pour 100 000 matrices test1: 47,61 sec
+# tes2 = 19,48 sec
+# 
+# complexité  temporelle lineaire en fonction du nombre de matrices 
 
 sigma = 1
 
